@@ -21,8 +21,11 @@ class BookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // mengatur orientasi layar yang diinginkan untuk aplikasi Anda.
     SystemChrome.setPreferredOrientations([
+      // mode potret dengan perangkat dalam posisi tegak
       DeviceOrientation.portraitUp,
+      // mode potret dengan perangkat dalam posisi terbalik
       DeviceOrientation.portraitDown,
     ]);
     return MultiProvider(
@@ -39,6 +42,7 @@ class BookApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (BuildContext context) => Categories(),
         ),
+        // mengelola status konektivitas dalam aplikasi 
         StreamProvider<ConnectivityStatus>(
           create: (context) =>
               ConnectivityService().connectionStatusController.stream,

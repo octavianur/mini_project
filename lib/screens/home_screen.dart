@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     getBooksData();
   }
 
+//  untuk mengambil data buku dari penyedia layanan (provider)
   Future<void> getBooksData() async {
     await Provider.of<NYT>(context, listen: false).getCategoryList();
   }
@@ -29,10 +30,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: const NavBar(HomeScreen.routeName),
+      // daftar atau tampilan yang dapat di-refresh ketika pengguna menarik layarnya.
+
       body: RefreshIndicator(
         color: const Color(0xff0DB067),
         backgroundColor: Colors.white,
+        // mengontrol berapa jarak yang harus ditarik oleh pengguna sebelum refresh dimulai
         displacement: 80,
+        //  fungsi yang akan dipanggil saat pengguna menarik dan melepaskan tampilan untuk melakukan refresh
         onRefresh: () async {
           await getBooksData();
         },

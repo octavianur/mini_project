@@ -28,7 +28,7 @@ class NYT with ChangeNotifier {
   Future<List<Category>?> getCategoryList() async {
     // Memanggil API
     const apiKey = 'AIzaSyDVTH4z5GGiiCqdNFexrEPehVZRLoA4tgg'; 
-    const url = "https://www.googleapis.com/books/v1/volumes?q=intitle:Harry%20Potter&key=AIzaSyDVTH4z5GGiiCqdNFexrEPehVZRLoA4tgg";
+    const url = "https://www.googleapis.com/svc/books/v2/list/names.json?api-key=$apiKey";
 
     try {
       final response = await https.get(Uri.parse(url));

@@ -33,7 +33,7 @@ class CategoriesSection extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // Handle the tap on the categories section if needed
+
             },
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.70,
